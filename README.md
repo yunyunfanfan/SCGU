@@ -19,6 +19,7 @@ This project is based on the GNNDelete framework, specifically designed for dele
 - Protein data: `proteins.list` (1,975 proteins)
 - Side effect data: `se.list` (5,854 side effects)
 - Relation matrices: `CPI.npy`, `CCS.npy`, `PPS.npy`, `compound_se.npy`
+- [data.zip](https://github.com/yunyunfanfan/SCGU/releases/download/v1.0.0/data.zip)
 
 ## Environment Setup
 
