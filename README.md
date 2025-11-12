@@ -1,10 +1,11 @@
-# Compound-Protein Interaction Deletion System
+# Subspace-Constrained Graph Unlearning For Forgetting High-Resk Compound-Protein Interactions
 
 This project is based on the GNNDelete framework, specifically designed for deleting specified compound-protein interactions (CPI) from trained graph neural networks to achieve machine unlearning functionality.
-
+**Our framework:**
+![framework](./framework.png)
+### Core Features
 ## Project Overview
 
-### Core Features
 - **Heterogeneous Graph Construction**: Build heterogeneous biomedical graphs from compound, protein, and side effect data
 - **Relation Types**: Support for four types of relationships
   - CPI: Compound-Protein Interaction (0/1 matrix)
@@ -18,9 +19,11 @@ This project is based on the GNNDelete framework, specifically designed for dele
 - Compound data: `compounds.list` (8,360 compounds)
 - Protein data: `proteins.list` (1,975 proteins)
 - Side effect data: `se.list` (5,854 side effects)
-- Relation matrices: `CPI.npy`, `CCS.npy`, `PPS.npy`, `compound_se.npy`
+- Relation matrices: `CPI.npy`, `CCS.npy`, `PPS.npy`, `compound_se.npy`,`false_CPI.npy`
 - [data.zip](https://github.com/yunyunfanfan/SCGU/releases/download/v1.0.0/data.zip)
 
+**Our datset:**
+![](./dataset.png)
 ## Environment Setup
 
 ### System Requirements
@@ -70,6 +73,7 @@ pip install numpy pandas scikit-learn tqdm wandb networkx ogb
 ├── compounds.list          # List of compound names
 ├── proteins.list           # List of protein names
 ├── se.list                 # List of side effects
+├── false_CPI.npy           # Compound-protein interaction matrix
 └── biomedical/            # Processed data files
     ├── d_42.pkl           # Train/test data splits
     ├── df_42.pt           # Deletion masks
