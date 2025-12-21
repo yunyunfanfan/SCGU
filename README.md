@@ -1,4 +1,4 @@
-# Subspace-Constrained Graph Unlearning For Forgetting High-Resk Compound-Protein Interactions
+# Subspace-Constrained Graph Unlearning For Forgetting High-Risk Compound-Protein Interactions
 
 This project is based on the GNNDelete framework, specifically designed for deleting specified compound-protein interactions (CPI) from trained graph neural networks to achieve machine unlearning functionality.
 **Our framework:**
