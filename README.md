@@ -197,6 +197,7 @@ For questions, please contact the project maintainers or submit an Issue.
 ## Cite
 
 If you are interested in our project,please cite our paper:
+```bash
 @article{ZHANG2025115193,
 title = {Subspace-Constrained Graph Unlearning For Forgetting High-Risk Compound-Protein Interactions},
 journal = {Knowledge-Based Systems},
@@ -206,3 +207,4 @@ issn = {0950-7051},
 doi = {https://doi.org/10.1016/j.knosys.2025.115193},
 author = {Yunjian Zhang and Rizhen Hu and Yixuan Li and Zhongfeng Kang}
 }
+```
