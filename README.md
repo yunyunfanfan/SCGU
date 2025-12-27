@@ -1,6 +1,6 @@
 # SCGU
 
-[Our paper .](url = {https://www.sciencedirect.com/science/article/pii/S0950705125022270})
+[Our paper.](https://www.sciencedirect.com/science/article/pii/S0950705125022270)
 
 This project is based on the GNNDelete framework, specifically designed for deleting specified compound-protein interactions (CPI) from trained graph neural networks to achieve machine unlearning functionality.
 
