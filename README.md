@@ -1,9 +1,12 @@
-# Subspace-Constrained Graph Unlearning For Forgetting High-Risk Compound-Protein Interactions
+# SCGU
+
+[Our paper .](url = {https://www.sciencedirect.com/science/article/pii/S0950705125022270})
 
 This project is based on the GNNDelete framework, specifically designed for deleting specified compound-protein interactions (CPI) from trained graph neural networks to achieve machine unlearning functionality.
+
 **Our framework:**
 ![framework](./framework.png)
-### Core Features
+
 ## Project Overview
 
 - **Heterogeneous Graph Construction**: Build heterogeneous biomedical graphs from compound, protein, and side effect data
@@ -190,3 +193,16 @@ For questions, please contact the project maintainers or submit an Issue.
 
 ---
 **Note**: This project is specifically designed for compound-protein interaction deletion tasks in biomedical graphs. Data formats and parameters have been optimized for this scenario.
+
+## Cite
+
+If you are interested in our project,please cite our paper:
+@article{ZHANG2025115193,
+title = {Subspace-Constrained Graph Unlearning For Forgetting High-Risk Compound-Protein Interactions},
+journal = {Knowledge-Based Systems},
+pages = {115193},
+year = {2025},
+issn = {0950-7051},
+doi = {https://doi.org/10.1016/j.knosys.2025.115193},
+author = {Yunjian Zhang and Rizhen Hu and Yixuan Li and Zhongfeng Kang}
+}
