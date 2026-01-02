@@ -1,6 +1,6 @@
 # SCGU
 
-[Our paper.](https://www.sciencedirect.com/science/article/pii/S0950705125022270)
+[**Our paper**: 📖](https://www.sciencedirect.com/science/article/pii/S0950705125022270)
 
 This project is based on the GNNDelete framework, specifically designed for deleting specified compound-protein interactions (CPI) from trained graph neural networks to achieve machine unlearning functionality.
 
@@ -76,7 +76,7 @@ pip install numpy pandas scikit-learn tqdm wandb networkx ogb
 ├── compounds.list          # List of compound names
 ├── proteins.list           # List of protein names
 ├── se.list                 # List of side effects
-├── false_CPI.npy           # Compound-protein interaction matrix
+├── false_CPI.npy(Need to be configured by yourself) # Compound-protein interaction matrix
 └── biomedical/            # Processed data files
     ├── d_42.pkl           # Train/test data splits
     ├── df_42.pt           # Deletion masks
@@ -105,7 +105,7 @@ WANDB_MODE=disabled python train_gnn.py \
 
 ### 2. Delete Specified Edges
 
-#### Method 1: Delete Specific Compound-Protein Interactions
+#### Method 1: Delete Specific Compound-Protein Interactions (Need to be configured by yourself)
 ```bash
 # Create edge list file to delete (format: compound_id-protein_id)
 echo "5826-Q8TC05" > edges_to_delete.txt
@@ -118,7 +118,7 @@ python delete_specific_edges.py \
   --valid_freq 20
 ```
 
-#### Method 2: Random Deletion of Specified Number of Edges
+#### Method 2: Random Deletion of Specified Number of Edges (Recommendation)
 ```bash
 python delete_gnn.py \
   --dataset biomedical \
@@ -165,19 +165,23 @@ checkpoint/drug/rgcn/
 
 ### Automated Setup
 ```bash
-
+# Install dependencies
+pip install -r requirements.txt
 
 # Data preprocessing
 python prepare_dataset.py
 
 # Train original model
-python train_gnn.py --dataset biomedical --gnn rgcn
+WANDB_MODE=disabled python train_gnn.py \
+  --dataset biomedical \
+  --gnn rgcn \
+  --random_seed 42 \
+  --data_dir /root/autodl-tmp/data \
+  --epochs 500 \
+  --valid_freq 50
 
 ### Manual Setup
 ```bash
-# Install dependencies
-pip install -r requirements.txt
-
 python delete_gnn.py \
   --dataset biomedical \
   --gnn rgcn \
@@ -194,17 +198,18 @@ For questions, please contact the project maintainers or submit an Issue.
 ---
 **Note**: This project is specifically designed for compound-protein interaction deletion tasks in biomedical graphs. Data formats and parameters have been optimized for this scenario.
 
-## Cite
+## Citation
 
-If you are interested in our project,please cite our paper:
+If you find this work useful, please consider citing our paper.
 ```bash
-@article{ZHANG2025115193,
-title = {Subspace-Constrained Graph Unlearning For Forgetting High-Risk Compound-Protein Interactions},
+@article{zhang2026subspace,
+title = {Subspace-constrained graph unlearning for forgetting high-risk compound-protein interactions},
 journal = {Knowledge-Based Systems},
+volume = {335},
 pages = {115193},
-year = {2025},
+year = {2026},
 issn = {0950-7051},
-doi = {https://doi.org/10.1016/j.knosys.2025.115193},
 author = {Yunjian Zhang and Rizhen Hu and Yixuan Li and Zhongfeng Kang}
+publisher={Elsevier}
 }
 ```
