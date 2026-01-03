@@ -16,7 +16,7 @@ from framework.utils import *
 
 
 data_dir = './data'
-external_drug_data_dir = '/root/autodl-tmp/data'
+external_drug_data_dir = '/{Your_data_path}'
 df_size = [i / 100 for i in range(10)] + [i / 10 for i in range(10)] + [i for i in range(10)]       # Df_size in percentage
 seeds = [42, 21, 13, 87, 100]
 graph_datasets = ['Cora', 'PubMed', 'DBLP', 'CS', 'ogbl-citation2', 'ogbl-collab'][4:]
