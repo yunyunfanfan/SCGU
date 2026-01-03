@@ -1,8 +1,8 @@
 # SCGU
 
-[**Our paper**: 📖](https://www.sciencedirect.com/science/article/pii/S0950705125022270)
+**Our paper**: [📖](https://www.sciencedirect.com/science/article/pii/S0950705125022270)
 
-This project is based on the GNNDelete framework, specifically designed for deleting specified compound-protein interactions (CPI) from trained graph neural networks to achieve machine unlearning functionality.
+This project is based on the GNNDelete framework, specifically designed for deleting high-risk compound-protein interactions (CPI) from trained graph neural networks to achieve graph unlearning functionality.
 
 **Our framework:**
 ![framework](./framework.png)
@@ -40,8 +40,8 @@ This project is based on the GNNDelete framework, specifically designed for dele
 1. **Base Environment**
 ```bash
 # Create virtual environment
-conda create -n cpi_deletion python=3.9
-conda activate cpi_deletion
+conda create -n scgu python=3.9
+conda activate scgu
 ```
 
 2. **PyTorch Installation**
@@ -53,22 +53,16 @@ pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pyt
 pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 ```
 
-3. **PyTorch Geometric Installation**
+3. **Other Dependencies Installation**
 ```bash
-pip install torch_geometric==2.6.1
-pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.7.0+cu128.html
-```
-
-4. **Other Dependencies**
-```bash
-pip install numpy pandas scikit-learn tqdm wandb networkx ogb
+pip install -r requirements.txt
 ```
 
 ### Data Preparation
 
 1. **Data File Structure**
 ```
-/root/autodl-tmp/data/
+/{Your+data_path}
 ├── CPI.npy                 # Compound-protein interaction matrix
 ├── CCS.npy                 # Compound-compound similarity matrix
 ├── PPS.npy                 # Protein-protein similarity matrix
@@ -98,7 +92,7 @@ WANDB_MODE=disabled python train_gnn.py \
   --dataset biomedical \
   --gnn rgcn \
   --random_seed 42 \
-  --data_dir /root/autodl-tmp/data \
+  --data_dir /{Your_data_path} \
   --epochs 500 \
   --valid_freq 50
 ```
@@ -118,7 +112,7 @@ python delete_specific_edges.py \
   --valid_freq 20
 ```
 
-#### Method 2: Random Deletion of Specified Number of Edges (Recommendation)
+#### Method 2: Random Deletion of Specified Number of Edges (Recommended)
 ```bash
 python delete_gnn.py \
   --dataset biomedical \
@@ -166,6 +160,9 @@ checkpoint/drug/rgcn/
 ### Automated Setup
 ```bash
 # Install dependencies
+conda create -n scgu python=3.9
+conda activate scgu
+pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 pip install -r requirements.txt
 
 # Data preprocessing
@@ -176,12 +173,11 @@ WANDB_MODE=disabled python train_gnn.py \
   --dataset biomedical \
   --gnn rgcn \
   --random_seed 42 \
-  --data_dir /root/autodl-tmp/data \
+  --data_dir /{Your_data_path} \
   --epochs 500 \
   --valid_freq 50
 
 ### Manual Setup
-```bash
 python delete_gnn.py \
   --dataset biomedical \
   --gnn rgcn \
