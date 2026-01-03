@@ -62,7 +62,7 @@ pip install -r requirements.txt
 
 1. **Data File Structure**
 ```
-/{Your+data_path}
+/{Your_data_path}
 ├── CPI.npy                 # Compound-protein interaction matrix
 ├── CCS.npy                 # Compound-compound similarity matrix
 ├── PPS.npy                 # Protein-protein similarity matrix
